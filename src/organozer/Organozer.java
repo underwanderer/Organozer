@@ -1,7 +1,10 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
+ * License, blah-blah-blah [License Headers in Project Properties]
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
+ * 
+ * The application is an organizer with tags.
+ * First it will be based on xml-file. And than we`ll see.
  */
 package organozer;
 
