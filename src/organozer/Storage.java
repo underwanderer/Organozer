@@ -6,38 +6,43 @@
 package organozer;
 
 import java.util.Calendar;
+import java.util.Objects;
+import java.util.Set;
+import java.util.logging.Logger;
 
 /**
- *
+ * An interface to a storage of records. It could be a database, an xml or something else
+ * Provides basic operations, typical for data storage
+ * 
  * @author evgene
  */
 public interface Storage {
     
-    /**
-     * Has to store all types of record, so must take corresponding param
-     * 
-     * @param record
-     */
     public void store ( Record record );
     
-    public List <Record> retrive ( Condition condition );
+    public Set <Record> retrive ( Condition condition );
+    
+    public Record remove ( Record record );
 }
 
 /**
- * We have several types of records, so an hierarchy is possible
- * But how to perform requirements of <method>store</method>?
+ * Provide a simple record which can be put in a storage, and so on
+ * In the other hand instances can take events from GUI
+ * 
  * @author suomi
  */
 interface Record {
     boolean setCreationTime ( Calendar time );
-    //boolean setStartTime ( Calendar time );
-    //boolean setEndTime ( Calendar time );
     boolean setTitle ( String title );
     boolean setContent ( Content content );
     
+    Calendar getCreationTime (  );
+    String getTitle (  );
+    Content getContent (  );
+    
     boolean addTag ( Tag tag );
+    boolean removeTag ( Tag tag );
+    Set <Tag> getTagSet (  );
 }
 
-interface Condition {
-    
-}
+
